@@ -22,6 +22,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{xcolor,colortbl}
+\usepackage{makecell}
+\usepackage{graphicx}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
     pdftitle={Software Requirement Specification},    % title
@@ -35,6 +37,9 @@
     urlcolor=purple,        % color of external links
     linktoc=page            % only page is linked
 }%
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \def\myversion{0.1 }
 \definecolor{LightCyan}{rgb}{0.88,1,1}
 \date{}
@@ -79,52 +84,120 @@
 \chapter{Introduction}
 
 \section{Purpose}
-Die App FH++, welche im Rahmen dieses Software-Projektes entwickelt wird, soll für die Studierenden der FH Campus Wien ein nützliches Tool darstellen,
-welches als eine sinnvolle Ergänzung zu den bereits bestehenden Diensten (FH Portal und Moodle) genutzt werden kann.
-Das Ziel ist den Usern der App eine Möglichkeit zu bieten das Studium möglichst effizient zu gestalten.
-Durch die Nutzung der Schnittstellen des FH Portals und jene des Open-Data-Portals der Stadt Wien, welches Zugriff auf Daten der Wiener Linien ermöglicht,
-soll dem User eine effiziente Planung des Studienalltags, ermöglicht werden.
-Die Anfahrt zur FH kann durch Kombination von Informationen aus dem individuellen Stundenplan sowie aktuellen Verkehrsdaten des öffentlichen Verkehrs 
-optimal gestaltet werden. Wird für die Anfahrt im Normalfall die U1 benützt, so soll die App bei Störungen im U-Bahn-Netz den User vor einer potenziell längeren
-Anfahrtszeit warnen.
-Für die Navigation innerhalb des Gebäudes der FH, soll der User eine Navigationshilfe mittels Augmented Reality nutzen können.   
-Außerdem soll es die Möglichkeit geben Emails des FH Mail Accounts abrufen und versenden zu können.
 
-\section{Organisatorische Einbettung}
-Das Projekt findet im Rahmen des Unterrichtes der ILV Software-Engineering statt. Nutzen an der Applikation sollten die Studierenden der Fachhochschule Campus Wien haben.
+The FH++ app, which is being developed as part of this software project, is intended to be a useful tool for students at the FH Campus Wien and is ment to be an addition to existing services like FH Portal and Moodle. \\ \\
+The goal is to offer users of the app the opportunity to make their studies as efficient as possible.
+By using the interfaces of the FH portal and those of the open data portal of the City of Vienna, which enables access to data from Wiener Linien,
+the users should be enpowered to plan their everyday studies in a time-optimizing manner.
+The arrival at the FH can be planned by combining information from the individual timetable and current traffic data for public transport. \\
+As an example, in case the metro U1 is used for getting to the FH, the app is intended to warn of a potentially later arrival time in the event of disruptions in the subway network.
+For navigation within the FH building, the user should be able to use a navigation aid. \\
+In addition, the app shouls also allow to read and send emails from the FH mail account.
 
-\chapter{Funktionale Anforderungen}
+\section{Organizational Embedding}
+The project takes place as part of the ILV Software Engineering course. The students of the Vienna University of Applied Sciences should benefit from the application.
+
+\chapter{Functional Requirements}
 
 \section{Use Case Diagramm}
 
-\section{Use Case Descriptions/ Produktkriterien}
-\subsection{Allgemeine Muss-Kriterien}
-\subsection{Allgemeine Soll-Kriterien}
-\subsection{Allgemeine Kann-Kriterien}
-\subsection{Use cases}
+\begin{figure} [h]
+	\centering
+	\includegraphics[width=1\linewidth]{pics/usecasediagram}
+	\caption{Use Case Diagramm}
+	\label{fig:usecasediagram}
+\end{figure}
 
+\section{Use cases}
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|L{2.1cm}|L{12cm}|l|}
 	\hline
 	\rowcolor{LightCyan}
-	\rule[-1ex]{0pt}{2.5ex} Use Case & EIN Beispiel \\
+	\rule[-1ex]{0pt}{2.5ex} Use Case & Navigation Aid / Room Search  \\
 	\hline
-	\rule[-1ex]{0pt}{2.5ex} Actors &  \\
+	\rule[-1ex]{0pt}{2.5ex} Actors & {\small User} \\
 	\hline
-	\rule[-1ex]{0pt}{2.5ex} Description &  \\
+	\rule[-1ex]{0pt}{2.5ex} Description & {\small Specific facilities of the campus are visualized on a map.} \\
 	\hline
-	\rule[-1ex]{0pt}{2.5ex} Stimulus &  \\
+	\rule[-1ex]{0pt}{2.5ex} Stimulus & \makecell[l]{{\small By clicking on the "show room" button } \\ {\small or by chosing the option "show room" option in the timetable feature.}} \\
 	\hline
-	\rule[-1ex]{0pt}{2.5ex} Response &  \\
+	\rule[-1ex]{0pt}{2.5ex} Response & \makecell[l]{{\small The desired room is highlighted in a visualization of buildings of the campus.}} \\
 	\hline
-	\rule[-1ex]{0pt}{2.5ex} Kriterien &  \\
+	\rule[-1ex]{0pt}{2.5ex} Criteria & \makecell[l]{
+		\textbf{MUST:} {\small Every room shall be depictable in a 3D map.} \\ {\small The user shall be able to rotate the virtualization of the buidlings in all } \\ {\small axes and shall also be able to zoom in and out.} \\
+		\textbf{SHOULD:} {\small The room search feature should interact with the timetable.} \\
+		{\small If a lecture is visible in the timetable the app should provide the possibility } \\ {\small to show the lecture room in the virtualized campus map.} \\
+		{\small lecture. In case of an online lecture a zoom link should be used instead } \\ {\small of the map.} \\
+		\textbf{COULD:} {\small The navigation within the buildings could be implemented using } \\ {\small augmented reality.} \\
+	}	\\
 	\hline
-	\rule[-1ex]{0pt}{2.5ex} Comments &  \\
+	\rule[-1ex]{0pt}{2.5ex} Comments & {\small No login needed for this feature, except feature is opened up from within timetable. }  \\
+	\hline
+\end{tabular}
+\begin{tabular}{|L{2.1cm}|L{12cm}|l|}
+	\hline
+	\rowcolor{LightCyan}
+	\rule[-1ex]{0pt}{2.5ex} Use Case & FH Arrival Planning  \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Actors & {\small User } \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Description & {\small The user is informed when to leave in order to arrive at the FH in time.  } \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Stimulus & \makecell[l]{{\small Information from timetable, user settings, current location and } \\ {\small open data portal of the city of Vienna }} \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Response & \makecell[l]{{\small The user is informed by a notification alarm.}} \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Criteria & \makecell[l]{
+		\textbf{MUST:} {\small Based on the stimulus mentioned above the user has to be } \\ {\small informed when to leave in order to arrive at the FH in time. By default } \\ {\small the fastest public trandport system shoould be chosen. If desired by the } \\ {\small the user, a preferred public transport system can be configured.} \\
+		\textbf{SHOULD:} {\small In case there are severe diruptions with the preferred public} \\ {\small transport system the app should inform the user and suggest alternative } \\ {\small routes.}} \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Comments & Login needed for this feature.  \\
+	\hline
+\end{tabular}
+\begin{tabular}[h]{|L{2.1cm}|L{12cm}|l|}
+	\hline
+	\rowcolor{LightCyan}
+	\rule[-1ex]{0pt}{2.5ex} Use Case & Managing Mail Account  \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Actors & {\small User } \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Description & {\small Read and write mails of the FH Campus Wien mail account. } \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Stimulus & \makecell[l]{{\small By clicking on the "email" button. }} \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Response & \makecell[l]{{\small The mail application should open up.}} \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Criteria & \makecell[l]{
+		\textbf{MUST:} {\small The mail application shall be connected to the users' mail account.} \\ {\small The user shall be able to read and write mails.} \\
+		\textbf{COULD:} {\small In case the user is running late there could be an option to allow } \\ {\small automatic notification of a predefined user group and or the lecturer about } \\ {\small the delay per mail.} \\
+	}	\\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Comments & Login needed for this feature.  \\
+	\hline
+\end{tabular}
+\begin{tabular}{|L{2.1cm}|L{12cm}|l|}
+	\hline
+	\rowcolor{LightCyan}
+	\rule[-1ex]{0pt}{2.5ex} Use Case & Timetable  \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Actors & {\small User } \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Description & {\small The user-specific timetable is displayed.  } \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Stimulus & \makecell[l]{{\small By clicking on the "timetable" button.}} \\ 
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Response & \makecell[l]{{\small The timetable is opened up.}} \\
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Criteria & \makecell[l]{
+		\textbf{MUST:} {\small The user shall be able to view the timetable of the current semester. } \\ {\small The location of any lecture shall be shown on a map of the campus.} \\
+		\textbf{SHOULD:} {\small The user should be able to see how long it takes to get from } \\ {\small current position to the lecture room. }} \\ 
+	\hline
+	\rule[-1ex]{0pt}{2.5ex} Comments & Login needed for this feature.  \\
 	\hline
 \end{tabular}
 \end{center}
 
-\chapter{Nicht Funktionale Anforderungen}
-\section{zb Anforderungen an die DatenhaltungDatenhaltung}
+\chapter{Non-Functional Requirements}
+\section{zb Anforderungen an die Datenhaltung}
 
 \end{document}
