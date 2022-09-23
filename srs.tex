@@ -85,26 +85,26 @@
 
 \section{Purpose}
 
-The FH++ app, which is being developed as part of this software project, is intended to be a useful tool for students at the FH Campus Wien and is ment to be an addition to existing services like FH Portal and Moodle. \\ \\
+The FH++ app, which is being developed as part of this software project, is intended to be a useful tool for students at the FH Campus Wien and is meant to be an addition to existing services like FH Portal and Moodle. \\ \\
 The goal is to offer users of the app the opportunity to make their studies as efficient as possible.
 By using the interfaces of the FH portal and those of the open data portal of the City of Vienna, which enables access to data from Wiener Linien,
-the users should be enpowered to plan their everyday studies in a time-optimizing manner.
+the users should be empowered to plan their everyday studies in a time-optimizing manner.
 The arrival at the FH can be planned by combining information from the individual timetable and current traffic data for public transport. \\
 As an example, in case the metro U1 is used for getting to the FH, the app is intended to warn of a potentially later arrival time in the event of disruptions in the subway network.
 For navigation within the FH building, the user should be able to use a navigation aid. \\
-In addition, the app shouls also allow to read and send emails from the FH mail account.
+In addition, the app should also allow to read and send emails from the FH mail account.
 
 \section{Organizational Embedding}
 The project takes place as part of the ILV Software Engineering course. The students of the Vienna University of Applied Sciences should benefit from the application.
 
 \chapter{Functional Requirements}
 
-\section{Use Case Diagramm}
+\section{Use Case Diagram}
 
 \begin{figure} [h]
 	\centering
 	\includegraphics[width=1\linewidth]{pics/usecasediagram}
-	\caption{Use Case Diagramm}
+	\caption{Use Case Diagram}
 	\label{fig:usecasediagram}
 \end{figure}
 
@@ -124,7 +124,7 @@ The project takes place as part of the ILV Software Engineering course. The stud
 	\rule[-1ex]{0pt}{2.5ex} Response & \makecell[l]{{\small The desired room is highlighted in a visualization of buildings of the campus.}} \\
 	\hline
 	\rule[-1ex]{0pt}{2.5ex} Criteria & \makecell[l]{
-		\textbf{MUST:} {\small Every room shall be depictable in a 3D map.} \\ {\small The user shall be able to rotate the virtualization of the buidlings in all } \\ {\small axes and shall also be able to zoom in and out.} \\
+		\textbf{MUST:} {\small Every room shall be depictable in a 3D map.} \\ {\small The user shall be able to rotate the virtualization of the buildings in all } \\ {\small axes and shall also be able to zoom in and out.} \\
 		\textbf{SHOULD:} {\small The room search feature should interact with the timetable.} \\
 		{\small If a lecture is visible in the timetable the app should provide the possibility } \\ {\small to show the lecture room in the virtualized campus map.} \\
 		{\small lecture. In case of an online lecture a zoom link should be used instead } \\ {\small of the map.} \\
@@ -148,8 +148,8 @@ The project takes place as part of the ILV Software Engineering course. The stud
 	\rule[-1ex]{0pt}{2.5ex} Response & \makecell[l]{{\small The user is informed by a notification alarm.}} \\
 	\hline
 	\rule[-1ex]{0pt}{2.5ex} Criteria & \makecell[l]{
-		\textbf{MUST:} {\small Based on the stimulus mentioned above the user has to be } \\ {\small informed when to leave in order to arrive at the FH in time. By default } \\ {\small the fastest public trandport system shoould be chosen. If desired by the } \\ {\small the user, a preferred public transport system can be configured.} \\
-		\textbf{SHOULD:} {\small In case there are severe diruptions with the preferred public} \\ {\small transport system the app should inform the user and suggest alternative } \\ {\small routes.}} \\
+		\textbf{MUST:} {\small Based on the stimulus mentioned above the user has to be } \\ {\small informed when to leave in order to arrive at the FH in time. By default } \\ {\small the fastest public transport system should be chosen. If desired by the } \\ {\small the user, a preferred public transport system can be configured.} \\
+		\textbf{SHOULD:} {\small In case there are severe disruptions with the preferred public} \\ {\small transport system the app should inform the user and suggest alternative } \\ {\small routes.}} \\
 	\hline
 	\rule[-1ex]{0pt}{2.5ex} Comments & Login needed for this feature.  \\
 	\hline
@@ -208,5 +208,20 @@ The system must be expandable: new members and modules should be able to
 be added, but also be able to be deleted. The names
 of the modules and the names of the members should be changeable. Data must be
 be checked for authenticity before they are added to the database.
+
+\section{Performance requirement}
+The data provided through the system must be refreshed immediately after a change happened: The user needs to be get the newest information within half a minute. Also refreshing the data on the app must not take longer than 10 seconds.
+
+\section{Installation and Tutorial}
+The application must be self-explanatory: The average user should be able to use the application with all its functions in a matter of 15 minutes. The context of the menu and the application as such, must be in a user-friendly, easy to understand way.
+
+\section{Accessibility}
+Accessible design must be integrated into the application: Text size, font, colours and menus must be tuned, as to enable as many people with accessibility difficulties as possible, to use the app in an efficient and easy way.
+
+\section{Data security}
+Login credentials and other sensitive information must be stored and transmitted only in a encrypted state. At no time in the system is any sensitive data allowed to be in cleartext. Modern up to date encryption must be used to ensure data safety.
+
+\section{Multiple platforms}
+The application must be available on all modern platforms to be useable by every student on every machine: to reach this goal the application must be compatible with the top ten modern browsers available at the moment.
 
 \end{document}
